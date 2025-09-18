@@ -25,7 +25,7 @@ class Turtle(Node):
 			msg = self.create_twist(1.0, 0.0)
 		elif self.time >= 17 and self.time < 19: #turn left
 			msg = self.create_twist(0.0, 1.58)
-		elif self.time >= 19 and self.time < 24): #draw line for 5 seconds
+		elif self.time >= 19 and self.time < 24: #draw line for 5 seconds
 			msg = self.create_twist(1.0, 0.0)
 		elif self.time >= 24 and self.time < 26: #turn left
 			msg = self.create_twist(0.0, 1.58)

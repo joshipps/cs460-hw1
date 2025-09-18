@@ -13,44 +13,39 @@ class Turtle(Node):
 
 	def timer_callback(self): 
 		msg = Twist()
-		if self.time < 12.5: 
+		if self.time < 13: #Outer circle
 			msg.linear.x = 2.0
 			msg.angular.z = 1.0
 
-		elif self.time >= 12.5 and self.time < 14.5:
+		elif self.time >= 13 and self.time < 15: #Turning inward
 			msg.linear.x = 0.0
 			msg.angular.z = 1.57
 			
-		elif self.time >= 14.5 and self.time < 17.5:
+		elif self.time >= 15 and self.time < 18: #Moving in
 			msg.linear.x = 1.0
 			msg.angular.z = 0.0
-		elif self.time >= 17.5 and self.time < 30.0:
+		elif self.time >= 18 and self.time < 31.0: #Small inner circle
 			msg.linear.x = 0.5
 			msg.angular.z = 1.0
-		elif self.time >= 30 and self.time < 30.5:
+		elif self.time >= 31 and self.time < 31.5:  #Turning out slightly
 			msg.linear.x = 0.0
 			msg.angular.z = -1.0
-		elif self.time >= 30.5 and self.time < 34:
+		elif self.time >= 31.5 and self.time < 34.5:  #First connection of inner circles
 			msg.linear.x = 1.0
 			msg.angular.z = 0.0
-		elif self.time >= 34 and self.time < 53.5:
+		elif self.time >= 34.5 and self.time < 54.5:  #Large inner circle
 			msg.linear.x = 0.8
 			msg.angular.z = 1.0
-		elif self.time >= 53.5 and self.time < 56.5:
+		elif self.time >= 54.5 and self.time < 57: #Second connection of inner circles
 			msg.linear.x = 1.0
 			msg.angular.z = 0.0
-		else:
+		else:		#done :)
 			msg.linear.x = 0.0
 			msg.angular.z = 0.0
 			rclpy.shutdown()
 			
 		self.time += 1
-			
 		self.publisher1.publish(msg)
-
-
-
-			
 
 def main(args=None):
 	rclpy.init(args=args)
